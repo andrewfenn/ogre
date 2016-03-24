@@ -33,11 +33,7 @@ if(WIN32)
 endif()
 
 if (APPLE)
-  include(CMakeForceCompiler)
-  CMAKE_FORCE_C_COMPILER(clang GNU)
-  CMAKE_FORCE_CXX_COMPILER(clang++ GNU)
   SET(CMAKE_SIZEOF_VOID_P 4)
-  set(CMAKE_XCODE_ATTRIBUTE_GCC_VERSION "com.apple.compilers.llvm.clang.1_0")
 endif ()
 
 
@@ -238,8 +234,6 @@ if (OGRE_BUILD_PLATFORM_APPLE_IOS)
 elseif (APPLE AND NOT OGRE_BUILD_PLATFORM_APPLE_IOS)
 
   # Set 10.5 as the base SDK by default
-  set(XCODE_ATTRIBUTE_SDKROOT macosx)
-  set(CMAKE_OSX_SYSROOT macosx)
   set(CMAKE_OSX_DEPLOYMENT_TARGET 10.5)
 
   if (NOT CMAKE_OSX_ARCHITECTURES)
